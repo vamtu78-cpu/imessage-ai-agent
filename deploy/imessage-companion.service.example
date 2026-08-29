@@ -1,0 +1,14 @@
+[Unit]
+Description=iMessage companion (Photon/Spectrum)
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/imessage-companion
+ExecStart=/usr/bin/node --env-file=.env node_modules/.bin/tsx src/index.ts
+Restart=always
+RestartSec=3
+User=root
+
+[Install]
+WantedBy=multi-user.target
